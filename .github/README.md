@@ -4,6 +4,23 @@ This repository contains forensic cheatsheets to be used with
 [cheat](https://github.com/cheat/cheat) and similar applications.
 
 ## How to
+
+### Installation
+First, install [cheat](https://github.com/cheat/cheat).
+
+Once `cheat` is installed and configured, you can clone this
+repository to a suitable location.  Open the cheat config file
+(usually `~/.config/cheat/conf.yml`) and add the following to the
+`cheatpaths` section:
+
+```sh
+  - name: forensic
+    path: /path/to/cheatsheets-forensic
+    tags: [ forensic ]
+    readonly: false
+```
+
+### Usage
 cheatsheets are simple text files that can be called and
 displayed with the `cheat` command:
 
@@ -46,7 +63,7 @@ mmls <image> -B
 ```
 
 For more information on cheatsheets, see the original project for
-[community cheatsheets](https://github.com/cheat/cheatsheets)
+[community cheatsheets](https://github.com/cheat/cheatsheets).
 
 
 
