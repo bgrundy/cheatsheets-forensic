@@ -46,7 +46,7 @@ mmls <image> -B
 ```
 
 For more information on cheatsheets, see the original project for
-[community cheatsheets]: https://github.com/cheat/cheatsheets
+[community cheatsheets:]https://github.com/cheat/cheatsheets
 
 
 
