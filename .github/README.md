@@ -9,7 +9,7 @@ This repository contains forensic cheatsheets to be used with
 First, install [cheat](https://github.com/cheat/cheat).
 
 Once `cheat` is installed and configured, you can clone this
-repository to a suitable location.  Open the cheat config file
+repository to a suitable location.  Open the `cheat` config file
 (usually `~/.config/cheat/conf.yml`) and add the following to the
 `cheatpaths` section:
 
@@ -19,6 +19,9 @@ repository to a suitable location.  Open the cheat config file
     tags: [ forensic ]
     readonly: false
 ```
+You might consider putting the `cheatsheets-forensic` section
+_before_ the `personal` section so that changes you make to any
+of the sheets are given priority. 
 
 ### Usage
 cheatsheets are simple text files that can be called and
@@ -35,7 +38,17 @@ mmls <image>
 # column for size
 
 mmls <image> -B
+
 ```
+You can get a list of all your available cheatsheets with `cheat -l` 
+or search by a specific tag (`sleuthkit`, `imaging`, etc.).
+```sh
+$ cheat -l -t 
+
+```
+
+
+
 
 ## Format 
 Cheatsheets are plain-text files that begin with an optional "front matter"
