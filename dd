@@ -1,0 +1,35 @@
+---
+tags: [ imaging ]
+---
+# Convert and copy a file - Can be used for forensic imaging.
+#  if=<input_device>       (source device)
+#  of=<output_file>        (destination file)
+#  bs=<blocksize>          (set read and write block size)
+#  count=<numblocks>       (number of blocks to read/write)
+#  skip=<startblock>       (skip reading to <startblock>)
+#  status=progress         (indicates copy progress)
+#
+# Create a simple single file image of a disk:
+
+dd if=/dev/sdc of=image.raw
+
+# The same but with progress shown:
+dd if=/dev/sdc of=image.raw status=progress
+
+# Create a simple single file image of a disk starting at sector
+# 2048:
+
+dd if=/dev/sdc of=image.raw bs=512 skip=2048
+
+# Read the partition table (DOS MBR) of a disk and pipe to xxd
+# for viewing.  Partition table is at offset 446 and is 64 bytes
+# in length:
+
+dd if=/dev/sdc bs=446 skip=2048 count=64 | xxd
+
+# To Create a split image with 2GB file sizes and .000, .001, .002... extension
+# we can use the "split" command with -d (numerical extension)
+# -a3 (3 digit extension) -bXG (each split is XG in size) and a
+# lone dash '-' to indicate input is coming from the pipe:
+
+dd if=/dev/sdc | split -d -a3 -b4G - image.split.

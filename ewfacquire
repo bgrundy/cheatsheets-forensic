@@ -1,0 +1,25 @@
+---
+syntax: bash
+tags: [ libewf, imaging ]
+---
+# Acquire an image in Expert Witness Format
+#   -C <case_number>
+#   -D <description>
+#   -e <examiner_name>
+#   -E <evidence_number>
+#   -f <format> (default is encase6)
+#   -l <logfile>
+#   -t <target_file> (without extension)
+#   -u unattended mode (non-interactive)
+#   <source> (the source file or device)
+
+# To acquire an image in EWF format *interactively*
+
+ewfacquire <device>
+
+# To acquire an image in EWF format non-interactively and with
+# parameters
+
+ewfacquire -C <case_number> -D "my notes" -e "Examiner Name" -E <evidence_number> -l acquisition.log -t <image_name> -u /dev/<device>
+
+

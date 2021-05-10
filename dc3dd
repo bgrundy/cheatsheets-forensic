@@ -1,0 +1,26 @@
+---
+tags: [ imaging ]
+---
+# Used for forensic imaging.
+#  if=<input_device>       (source device)
+#  of=<output_file>        (destination file)
+#  hof=<output_file>       (destination file with hashing - requires hash=...)
+#  ofs=<output_file.fmt>   (destination file for splitting with .fmt extension)
+#  hofs=<output_file.fmt>  (destination file for splitting
+#                           hash with .fmt extension - requires hash =...)
+#  ofsz=<bytes>            (when using hofs or ofs - set the split size)
+#  hash=<algorithm>        (md5, sha1, sha256 or sha512 when using hof or hofs)
+#  log=<log_file>          (log the output)
+#  wipe=<device>           (wipe the specified device)
+
+# To Create a simple single file image of a disk:
+
+dc3dd if=/dev/sdc of=image.raw
+
+# To Create a split image with 2GB file sizes and .000, .001, .002... extension:
+
+dc3dd if=/dev/sdc ofs=image.000 ofsz=2G
+
+# Same as above but with a sha256 hash and logfile:
+
+dc3dd if=/dev/sdc hofs=image.000 ofsz=2G hash=sha256 log=image.log
