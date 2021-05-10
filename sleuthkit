@@ -1,0 +1,45 @@
+---
+tags: [ sleuthkit ]
+---
+# The sleuthkit (TSK) is a collection of tools basically ordered
+# according to the "layer" of analysis they work on:
+# (This cheatsheet covers basic tools - not all TSK tools are
+# covered).
+
+# Media Managment Layer
+mmls   # Display volume layout of a disk
+
+# File System Layer
+fsstat # print the file system statistics
+fls    # list the contents of directories
+
+# File Name Layer
+ffind  # Find the name of a file given the meta-data
+
+# Inode (metadata layer)
+
+istat  # Display details of a meta-data item (MFT entry, EXT inode, etc.)
+icat   # stream the data blocks associated with a meta-data item
+ifind  # find the meta-data item given the filename or data unit.
+
+# Block layer
+
+blkstat # Display details of a file system data unit
+blkcat  #
+blkls
+blkcalc
+
+# General TSK tool usage:
+
+# Most TSK tools work on file systems
+#  - need to pass -o <offset> found with mmls
+#
+# TSK will support the following image formats if the
+# corresponding library is installed (auto detected)
+
+ - EWF (E01, etc.) - using libewf
+ - VHDI (Virtual Disk - VHD) - using libvhdi
+ - VMDK (Virtual Disk - VMDK) - using libvmdk
+
+
+
