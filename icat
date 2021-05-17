@@ -1,0 +1,15 @@
+---
+syntax: bash
+tags: [ sleuthkit ]
+---
+# Display the contents of a file based on its meta data entry
+# number (MFT entry, inode, etc.)
+
+# The <offset> to the file system (in sectors) is from mmls output.
+
+icat -o <offset> <image> <meta_data>
+
+# Example:
+
+$ icat -o 2048 image.raw 150
+This is the contents of the file...

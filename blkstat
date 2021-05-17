@@ -1,0 +1,15 @@
+---
+syntax: bash
+tags: [ sleuthkit ]
+---
+# Display the status of a file system data unit
+
+# The <offset> to the file system (in sectors) is from mmls output.
+
+blkstat -o <offset> <image> <data_unit>
+
+# Example:
+
+$ blkstat -o 2048 image.raw 63273
+Cluster: 63273
+Allocated

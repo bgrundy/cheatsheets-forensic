@@ -1,0 +1,20 @@
+---
+syntax: bash
+tags: [ sleuthkit ]
+---
+# Output file system data units (unallocated by default)
+#  -e  (every block [entire file sysetm])
+#  -a  (all allocated blocks)
+#  -A  (all unallocated blocks [default])
+
+# The <offset> to the file system (in sectors) is from mmls output.
+
+blkls -o <offset> <image> 
+
+# Example:
+
+$ blkls -o 2048 image.raw > unalloc.raw
+
+# The above example outputs all unallocated data block from
+# image.raw and stores them in unalloc.raw for separate
+# processing.

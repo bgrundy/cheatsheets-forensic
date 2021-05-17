@@ -1,0 +1,28 @@
+---
+syntax: bash
+tags: [ sleuthkit ]
+---
+
+# Find a meta data entry (MFT # entry, inode, etc.) given a data
+# unit or file name.
+#  -d <data_unit> (find the meta data entry given the data unit)
+#  -n <filename>  (find the meta data entry given the file name)
+
+# The <offset> to the file system (in sectors) is from mmls output.
+
+ifind -o <offset> <image> <metadata_entry>
+
+# Display the file or directory name of the object with inode/MFT entry of <100>:
+
+ifind -o <offset> -d 100 <image> 
+
+# Display the file or directory name of the object with inode/MFT entry of <100>:
+
+ifind -o <offset> -n 'file_name' <image> 
+
+# Example:
+
+$ ifind -o 2048 -n "My Documents" image.raw
+72
+
+

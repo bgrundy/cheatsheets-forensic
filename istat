@@ -1,0 +1,38 @@
+---
+syntax: bash
+tags: [ sleuthkit ]
+---
+# Display the "statistics" of a meta data entry (MFT entry,
+# inode, etc.)
+
+# The <offset> to the file system (in sectors) is from mmls output.
+
+istat -o <offset> <image> <meta_data>
+
+# Example:
+
+$ istat -o 2048 image.raw 211
+Directory Entry: 211
+Allocated
+File Attributes: File, Archive
+Size: 37520
+Name: FTP.EXE
+
+Directory Entry Times:
+Written:	1996-08-24 11:11:10 (EDT)
+Accessed:	2000-09-23 00:00:00 (EDT)
+Created:	2000-09-23 15:22:10 (EDT)
+
+Sectors:
+2449 2450 2451 2452 2453 2454 2455 2456
+2457 2458 2459 2460 2461 2462 2463 2464
+2465 2466 2467 2468 2469 2470 2471 2472
+2473 2474 2475 2476 2477 2478 2479 2480
+2481 2482 2483 2484 2485 2486 2487 2488
+2489 2490 2491 2492 2493 2494 2495 2496
+2497 2498 2499 2500 2501 2502 2503 2504
+2505 2506 2507 2508 2509 2510 2511 2512
+2513 2514 2515 2516 2517 2518 2519 2520
+2521 2522
+
+

@@ -1,0 +1,11 @@
+---
+syntax: bash
+tags: [ sleuthkit ]
+---
+# Display the "statistics" of a file system
+
+# The <offset> to the file system (in sectors) is from mmls output.
+
+fsstat -o <offset> <image>
+
+

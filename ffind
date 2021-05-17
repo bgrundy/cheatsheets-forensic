@@ -1,0 +1,26 @@
+---
+syntax: bash
+tags: [ sleuthkit ]
+---
+
+# Find a file name or directory name given a meta data entry (MFT # entry, inode, etc.)
+#  -d  (deleted entries only)
+
+# The <offset> to the file system (in sectors) is from mmls output.
+
+ffind -o <offset> <image> <metadata_entry>
+
+# Display the file or directory name of the object with inode/MFT entry of <100>:
+
+ffind -o <offset> <image> 100
+
+# Same as above, but only display deleted entries:
+
+ffind -o <offset> -d <image> 100
+
+# Example:
+
+$ ffind -o 2048 image.raw 211
+/bin/ftp
+
+

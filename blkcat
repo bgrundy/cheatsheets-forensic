@@ -1,0 +1,26 @@
+---
+syntax: bash
+tags: [ sleuthkit ]
+---
+# Display the contents of a file system data unit.
+#  -h  (diplay in hex dump format)
+#  -s  (show the data unit size)
+
+# The <offset> to the file system (in sectors) is from mmls output.
+
+blkcat -o <offset> <image> <data_unit>
+
+# Examples:
+# (note that since we are streaming potential binary data to
+# standard out, we will pipe the output to xxd).
+
+$ blkcat -o 2048 -h image.raw 63273 
+0	00000000 00000000 00000000 00000000 	.... .... .... ....
+16	00000000 00000000 00001b1b 1b833636 	.... .... .... ..66
+32	36ff3f3f 3fff4d4d 4dff4d4d 4df31717 	6.?? ?.MM M.MM M...
+48	177d0101 01150101 01040000 00000000 	.}.. .... .... ....
+...
+
+# get the data unit size for a given file system
+$ blkcat -o 2048 -s image.raw
+4096: Size of Addressable Unit

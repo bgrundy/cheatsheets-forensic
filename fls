@@ -1,0 +1,59 @@
+---
+syntax: bash
+tags: [ sleuthkit ]
+---
+
+# List file and directory names in a disk image.
+#  -d  (deleted entries only)
+#  -D  (directories only)
+#  -F  (file entries only)
+#  -p  (full path instead of '+' for depth)
+#  -r  (recursive)
+
+# The <offset> to the file system (in sectors) is from mmls output.
+
+fls -o <offset> <image>
+
+# if no directory inode/MFT entry is provided, then the root
+# directory is displayed by default.
+
+# Display the files and directories in a directory with an
+# inode/MFT entry of <100>:
+
+fls -o <offset> <image> 100
+
+# Same as above, but only display directories:
+
+fls -o <offset> -D <image> 100
+
+# Same as above, but only display files:
+
+fls -o <offset> -F <image> 100
+
+# Display all files in an image, recursively:
+
+fls -o <offset> -Fr <image> 
+
+# Display all deleted files in an image, recursively:
+
+fls -o <offset> -Frd <image> 
+
+# Output:
+d/d 4:	Docs
+d/d 6:	Pics
+r/r 7:	ARP.EXE
+r/r 8:	FTP.EXE
+
+# First field in output:
+<type from file name structure> / <type from meta data structure>
+# r = regular file
+# d = directory
+# - = unknown
+# v = TSK virtual
+
+# Second field in output:
+<meta data entry number> #MFT entry, inode, FAT directory entry, etc.
+
+# Third field in output:
+<item name>  #file name, directory name, etc.
+

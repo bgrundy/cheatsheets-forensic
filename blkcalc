@@ -1,0 +1,22 @@
+---
+syntax: bash
+tags: [ sleuthkit ]
+---
+# Disk unit mapping between unallocated an normal images
+#  -u  (calculate block address from unallocated image [from blkls])
+#  -s  (calculate block address from a slack image [from blkls -s])
+#  -d  (calculate block address from a raw image [from dd or #  similar])
+
+# The <offset> to the file system (in sectors) is from mmls output.
+
+blkcalc -o <offset> -[dsu] <data_unit> <image> 
+
+# Examples:
+
+$ blkcalc -o 2048 -u 23693 image.raw
+47996
+
+# In the above example:
+ - 23693 is the address of an unallocated unit in blkls output
+ - 47996 is the address of that same data unit in the full image.raw
+
