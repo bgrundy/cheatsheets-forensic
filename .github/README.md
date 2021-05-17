@@ -14,9 +14,9 @@ repository to a suitable location.  Open the `cheat` config file
 `cheatpaths` section:
 
 ```sh
-  - name: forensic
+  - name: forensics
     path: /path/to/cheatsheets-forensic
-    tags: [ forensic ]
+    tags: [ forensics ]
     readonly: false
 ```
 You might consider putting the `cheatsheets-forensic` section
@@ -41,14 +41,11 @@ mmls <image> -B
 
 ```
 You can get a list of all your available cheatsheets with `cheat -l` 
-or search by a specific tag (`sleuthkit`, `imaging`, etc.).
+or search by a specific tag (`forensics1`, `sleuthkit`, `imaging`, etc.).
 ```sh
-$ cheat -l -t 
+$ cheat -l -t <tagname>
 
 ```
-
-
-
 
 ## Format 
 Cheatsheets are plain-text files that begin with an optional "front matter"
@@ -77,7 +74,6 @@ mmls <image> -B
 
 For more information on cheatsheets, see the original project for
 [community cheatsheets](https://github.com/cheat/cheatsheets).
-
 
 
 ### License ###

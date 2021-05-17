@@ -24,3 +24,7 @@ dc3dd if=/dev/sdc ofs=image.000 ofsz=2G
 # Same as above but with a sha256 hash and logfile:
 
 dc3dd if=/dev/sdc hofs=image.000 ofsz=2G hash=sha256 log=image.log
+
+# To wipe a device with zero's:
+
+dc3dd wipe=/dev/sdx

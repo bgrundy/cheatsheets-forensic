@@ -2,12 +2,12 @@
 syntax: bash
 tags: [ sleuthkit ]
 ---
-# Display a device or image partition table / layout
+# Display a device or image partition table / layout.
 
 mmls /dev/<device>
 mmls <image>
 
 # Display a  device or image partition table / layout with a
-# column for size
+# column for size.
 
 mmls <image> -B

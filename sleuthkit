@@ -5,30 +5,7 @@ tags: [ sleuthkit ]
 # according to the "layer" of analysis they work on:
 # (This cheatsheet covers basic tools - not all TSK tools are
 # covered).
-
-# Media Managment Layer
-mmls   # Display volume layout of a disk
-
-# File System Layer
-fsstat # print the file system statistics
-fls    # list the contents of directories
-
-# File Name Layer
-ffind  # Find the name of a file given the meta-data
-
-# Inode (metadata layer)
-
-istat  # Display details of a meta-data item (MFT entry, EXT inode, etc.)
-icat   # stream the data blocks associated with a meta-data item
-ifind  # find the meta-data item given the filename or data unit.
-
-# Block layer
-
-blkstat # Display details of a file system data unit
-blkcat  #
-blkls
-blkcalc
-
+#
 # General TSK tool usage:
 
 # Most TSK tools work on file systems
@@ -41,5 +18,27 @@ blkcalc
  - VHDI (Virtual Disk - VHD) - using libvhdi
  - VMDK (Virtual Disk - VMDK) - using libvmdk
 
+# Media Management Layer
+mmls   # Display volume layout of a disk
 
+# File System Layer
+fsstat # Print the file system statistics
+fls    # List the contents of directories
+
+# File Name Layer
+ffind  # Find the name of a file given the meta-data
+
+# Inode (metadata layer)
+
+istat  # Display details of a meta-data item (MFT entry, EXT inode, etc.)
+icat   # Stream the data blocks associated with a meta-data item
+ifind  # Find the meta-data item given the filename or data unit.
+
+# Block layer
+
+blkstat # Display details of a file system data unit
+blkcat  # Stream the specified volume data block
+blkls   # Output volume data units (unallocated by default)
+blkcalc # Convert between and unallocated block address and the block 
+        # address in an original image
 
