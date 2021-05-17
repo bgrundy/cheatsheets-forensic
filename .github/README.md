@@ -41,7 +41,7 @@ mmls <image> -B
 
 ```
 You can get a list of all your available cheatsheets with `cheat -l` 
-or search by a specific tag (`forensics1`, `sleuthkit`, `imaging`, etc.).
+or search by a specific tag (`forensics`, `sleuthkit`, `imaging`, etc.).
 ```sh
 $ cheat -l -t <tagname>
 
