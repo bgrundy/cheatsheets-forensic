@@ -1,0 +1,68 @@
+---
+syntax: bash
+tags: [ sleuthkit ]
+---
+
+# Scans a disk image for pre-definded patterns and content
+#  -o <output_dir>  
+#  -b <bannerfile.txt> (include a banner at the top of the #  output)
+#  -F <rfile>          (search term file - regular expressions)
+#  -f <regex>          (regex search term)
+#  -E <scanner>        (turn off all scanners then enable <scanner>)
+#  -e <scanner>        (enable a disabled scanner)
+#  -x <scanner>        (disable an enabled scanner)
+#  -r alert_list.txt   (terms in alert_list.txt will be flagged #  in an ALERT file)
+
+# Run all the *default* scanners on image.dd:
+
+$ bulk_extractor -o <outdir> image.dd
+
+# A more complex example:
+
+$ bulk_extractor -b banner.txt -o BulkOut -F regex.txt -E accts -e email -e find -e pdf -e zip -e exif image.dd
+
+# In the above command:
+# -b banner.txt     (append the contents of banner.txt to the top of the output)
+# -o BulkOut        (write the output to BulkOut [directory])
+# -F regex.txt      (Find the regular expressions in regex.txt)
+# -E accts          (disable all scanners then enable the accts scanner)
+# -e email          (also enable the email scanner)
+# -e find           (also enable the find scanner)
+# -e pdf            (also enable the pdf scanner)
+# -e zip            (also enable the zip scanner)
+# -e exif           (also enable the exif scanner)
+# image.dd          (the image to search) 
+
+# These scanners disabled by default; enable with -e:
+#    -e base16 - enable scanner base16
+#    -e facebook - enable scanner facebook
+#    -e outlook - enable scanner outlook
+#    -e sceadan - enable scanner sceadan
+#    -e wordlist - enable scanner wordlist
+#    -e xor - enable scanner xor
+# 
+# These scanners enabled by default; disable with -x:
+#    -x accts - disable scanner accts
+#    -x aes - disable scanner aes
+#    -x base64 - disable scanner base64
+#    -x elf - disable scanner elf
+#    -x email - disable scanner email
+#    -x exif - disable scanner exif
+#    -x find - disable scanner find
+#    -x gps - disable scanner gps
+#    -x gzip - disable scanner gzip
+#    -x hiberfile - disable scanner hiberfile
+#    -x httplogs - disable scanner httplogs
+#    -x json - disable scanner json
+#    -x kml - disable scanner kml
+#    -x msxml - disable scanner msxml
+#    -x net - disable scanner net
+#    -x pdf - disable scanner pdf
+#    -x rar - disable scanner rar
+#    -x sqlite - disable scanner sqlite
+#    -x vcard - disable scanner vcard
+#    -x windirs - disable scanner windirs
+#    -x winlnk - disable scanner winlnk
+#    -x winpe - disable scanner winpe
+#    -x winprefetch - disable scanner winprefetch
+#    -x zip - disable scanner zip
