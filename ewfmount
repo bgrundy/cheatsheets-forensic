@@ -1,0 +1,34 @@
+---
+syntax: bash
+tags: [ libewf, imaging ]
+---
+# Mount the data contained in an Expert Witness Format image.
+
+# To mount an image in EWF format.
+
+ewfmount image.E01 <mountpoint>
+
+# This will result in a "fuse" image at the mountpoint:
+
+$ ls <mountpoint>
+ewf1
+
+# The ewf1 image is the *data* (usually a full disk or volume
+# image) contained in the EWF image.  Treat it as a full disk
+# image:
+
+$ mmls <mountpoint>/ewf1
+DOS Partition Table
+Offset Sector: 0
+Units are in 512-byte sectors
+
+      Slot      Start        End          Length       Description
+000:  Meta      0000000000   0000000000   0000000001   Primary Table (#0)
+001:  -------   0000000000   0000002047   0000002048   Unallocated
+002:  000:000   0000002048   0001023999   0001021952   NTFS / exFAT (0x07)
+
+# To unmount, make sure you are finished with the virtual disk
+# file, and use fusermount:
+
+$ fusermount -u <mountpoint>
+

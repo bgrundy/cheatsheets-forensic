@@ -1,0 +1,13 @@
+---
+syntax: bash
+tags: [ libewf, imaging ]
+---
+# View the meta data of an image in Expert Witness Format
+#   -i show only the acquisition information
+#   -m show only the media informaiton
+
+# To view the meta data of a set of EWF files, provide only the
+# first file:
+
+ewfinfo image.E01
+
