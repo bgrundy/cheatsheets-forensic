@@ -1,6 +1,6 @@
 ---
 syntax: bash
-tags: [ libewf, imaging ]
+tags: [ libewf ]
 ---
 # Mount the data contained in an Expert Witness Format image.
 

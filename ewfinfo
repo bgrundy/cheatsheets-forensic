@@ -1,6 +1,6 @@
 ---
 syntax: bash
-tags: [ libewf, imaging ]
+tags: [ libewf ]
 ---
 # View the meta data of an image in Expert Witness Format
 #   -i show only the acquisition information
